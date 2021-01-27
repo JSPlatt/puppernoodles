@@ -46,9 +46,9 @@ end
   def choose_a_dog
     puts "Choose the number of the dog you'd like to play with!"
     answer = STDIN.gets.chomp
-    @dog = Dog.select(:name)
+    @dog = Dog.all.find(answer).name
     sleep(1)
-    puts "Your Playdate with #{@dog} is scheduled for"
+    puts "Your Playdate with #{@dog} is scheduled for "
     
   end
 # # Need to figure out how to get the ability to choose dog by id number
