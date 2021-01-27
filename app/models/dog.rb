@@ -11,7 +11,7 @@ class Dog < ActiveRecord::Base
         "#{self.id}) #{self.name}!!!"
     end
 
-    def name_of_last_selection 
-        self.playdates.last.dog.name
-    end 
+    
+
+    
 end

@@ -48,11 +48,9 @@ end
     answer = STDIN.gets.chomp
     @dog = Dog.select(:name)
     sleep(1)
-    puts "Your Playdate with #{@dog} is scheduled!"
-    
+    puts "Your Playdate with #{@dog} is scheduled for"
     
   end
-
 # # Need to figure out how to get the ability to choose dog by id number
 
     
