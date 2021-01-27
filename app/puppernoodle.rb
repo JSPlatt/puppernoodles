@@ -1,6 +1,5 @@
 class PupperNoodles
-  # here will be your CLI!
-  # it is not an AR class so you need to add attr
+ 
   attr_reader :user
 
   def run
@@ -9,11 +8,12 @@ class PupperNoodles
     change_user_name
     see_all_dogs
     choose_a_dog
+    make_a_playdate
     user_cancel
   end
 
   def welcome
-    puts "Welcome to PupperNoodles!"
+    puts "Welcome to PupperNoodles! An app you never you knew you needed!"
     sleep(1)
     puts "Time to get your playdate started...."
   end
@@ -29,21 +29,21 @@ class PupperNoodles
   end
 
   def change_user_name
-    puts "You're changing your username!" 
-    puts "What would you like your new username to be? "
+    puts "Your username is expired" 
+    puts "Please enter a new username?"
     new_user_name = STDIN.gets.chomp 
     @user.update(username: new_user_name)
   end
 end
 
   def see_all_dogs
-    puts "Let's take a look at those dogs..."
+    puts "Let's take a look at all available dogs...".colorize(:green)
     sleep(2)
-    puts ".................................."
+    puts "..................................".colorize(:red)
     sleep(2)
-    puts "..........MATCHING................"
+    puts "..........MATCHING................".colorize(:yellow)
     sleep(2)
-    puts ".................................."
+    puts "..................................".colorize(:green)
     sleep(3)
     Dog.all.each do |dog_ins|
       puts dog_ins.id_and_name()
@@ -55,9 +55,21 @@ end
     answer = STDIN.gets.chomp
     @dog = Dog.all.find(answer).name
     sleep(1)
-    puts "Your Playdate with #{@dog} is scheduled for January 30th, 2021 at 11:30am! Have fun!"
-    sleep(2.5)
   end
+
+  def make_a_playdate
+    puts "You have selected #{@dog}, would you like to make a playdate? yes/no?".colorize(:green)
+    answer = STDIN.gets.chomp
+      if answer == "yes"
+         playdate = Playdate.create[answer]
+        puts "Great! Your playdate is scheduled!"
+        sleep(1)
+        puts "Your playdate with #{@dog} is scheduled for January 30th, 2021 at 11:30am! Have fun!".colorize(:green)
+        sleep(2.5)
+      else
+        puts "Maybe next time..."
+      end
+    end    
 
   def user_cancel
     puts "All done? Would you like to cancel your account? yes/no?"

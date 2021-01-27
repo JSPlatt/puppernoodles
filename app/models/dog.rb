@@ -10,8 +10,4 @@ class Dog < ActiveRecord::Base
     def id_and_name
         "#{self.id}) #{self.name}!!!"
     end
-
-    
-
-    
 end
