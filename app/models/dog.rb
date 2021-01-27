@@ -7,4 +7,11 @@ class Dog < ActiveRecord::Base
         Dog.find_by(name: dog_name).id
     end 
 
+    def id_and_name
+        "#{self.id}) #{self.name}!!!"
+    end
+
+    def name_of_last_selection 
+        self.playdates.last.dog.name
+    end 
 end
