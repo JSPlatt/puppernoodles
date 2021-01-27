@@ -13,7 +13,7 @@ class PupperNoodles
   end
 
   def welcome
-    puts "Welcome to PupperNoodles! An app you never you knew you needed!"
+    puts "Welcome to PupperNoodles! The app you never you knew you needed!"
     sleep(1)
     puts "Time to get your playdate started...."
   end
@@ -39,6 +39,16 @@ end
   def see_all_dogs
     puts "Let's take a look at all available dogs...".colorize(:green)
     sleep(2)
+    puts "
+    .-------------.       .    .   *       *   
+    /_/_/_/_/_/_/_/ \         *       .   )    .
+   //_/_/_/_/_/_// _ \ __          .        .   
+  /_/_/_/_/_/_/_/|/ \.' .`-o                    
+   |             ||-'(/ ,--'                    
+   |             ||  _ |                        
+   |             ||'' ||                        
+   |_____________|| |_|L                     
+         ".colorize(:blue)
     puts "..................................".colorize(:red)
     sleep(2)
     puts "..........MATCHING................".colorize(:yellow)
