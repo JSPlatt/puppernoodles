@@ -9,6 +9,7 @@ class PupperNoodles
     see_all_dogs
     choose_a_dog
     make_a_playdate
+    all_playdates
     user_cancel
   end
 
@@ -83,7 +84,10 @@ end
 
     def all_playdates
       @user.reload
+      @user.playdates.each do |play_date| 
+        puts "#{play_date.dog.name} playdate_id: #{play_date.id}"
     end
+  end
 
   def user_cancel
     puts "All done? Would you like to cancel your account? yes/no?"
